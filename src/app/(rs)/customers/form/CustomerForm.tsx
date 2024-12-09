@@ -7,13 +7,27 @@ import { Button } from "@/components/ui/Button"
 
 import { insertCustomerSchema, type insertCustomerSchemaType, type selectCustomerSchemaType } from "@/zod-schemas/customer"
 import { InputWithLabel } from "@/components/inputs/InputWithLabel"
-import { TextareaWithLabel } from "@/components/inputs/TextareaWithLabel"
+import { SelectWithLabel } from "@/components/inputs/SelectWithLabel"
+import { CheckboxWithLabel } from "@/components/inputs/CheckboxWithLabel"
+
+
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs"
+
+import { StatesArray } from "@/constants/StateArray"
+import { TextAreaWithLabel } from "@/components/inputs/TextAreaWithLabel"
+
 
 type Props = {
     customer?: selectCustomerSchemaType,
 }
 
 export default function CustomerForm({ customer }: Props) {
+    const { getPermission, getPermissions, isLoading } = useKindeBrowserClient()
+    const isManager = !isLoading && getPermission('manager')?.isGranted
+
+    const permObj = getPermissions()
+    const isAuthorized = !isLoading && permObj.permissions.some(perm => perm === 'manager' || perm === 'admin')
+
     const defaultValues: insertCustomerSchemaType = {
         id: customer?.id ?? 0,
         firstName: customer?.firstName ?? '',
@@ -42,7 +56,7 @@ export default function CustomerForm({ customer }: Props) {
         <div className="flex flex-col gap-1 sm:px-8">
             <div>
                 <h2 className="text-2xl font-bold">
-                    {customer?.id ? "Edit" : "New"} Customer Form
+                    {customer?.id ? "Edit" : "New"} Customer {customer?.id ? `#${customer.id}`: "Form"}
                 </h2>
             </div>
             <Form {...form}>
@@ -71,6 +85,11 @@ export default function CustomerForm({ customer }: Props) {
                             fieldTitle="City"
                             nameInSchema="city"
                         />
+                        <SelectWithLabel<insertCustomerSchemaType>
+                            fieldTitle="State"
+                            nameInSchema="state"
+                            data={StatesArray} 
+                        />
                     </div>
 
                     <div className="flex flex-col gap-4 w-full max-w-xs">
@@ -87,11 +106,18 @@ export default function CustomerForm({ customer }: Props) {
                             fieldTitle="Phone"
                             nameInSchema="phone"
                         />
-                        <TextareaWithLabel<insertCustomerSchemaType>
+                        <TextAreaWithLabel<insertCustomerSchemaType>
                             fieldTitle="Notes"
                             nameInSchema="notes"
                             className="h-40"
                         />
+
+                        {isLoading ? <p>Loading...</p> : isManager ? (
+                        <CheckboxWithLabel<insertCustomerSchemaType>
+                            fieldTitle="Active"
+                            nameInSchema="active"
+                            message="Yes"
+                        />): null}
 
                         <div className="flex gap-2">
                             <Button

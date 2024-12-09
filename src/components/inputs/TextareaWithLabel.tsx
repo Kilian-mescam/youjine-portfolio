@@ -18,7 +18,7 @@ type Props<S> = {
     className?: string,
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
-export function TextareaWithLabel<S>({
+export function TextAreaWithLabel<S>({
     fieldTitle, nameInSchema, className, ...props
 } : Props<S>) {
     const form = useFormContext()

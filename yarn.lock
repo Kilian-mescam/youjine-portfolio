@@ -1444,6 +1444,15 @@
   resolved "https://registry.yarnpkg.com/@kinde/jwt-decoder/-/jwt-decoder-0.2.0.tgz#1b18d58d75293aa48934075b0442b2403f423507"
   integrity sha512-dqtwCmAvywOVLkkUfp4UbqdvVLsK0cvHsJhU3gDY9rgjAdZhGw0vCreBW6j3MFLxbi6cZm7pMU7/O5SJgvN5Rw==
 
+"@kinde/management-api-js@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@kinde/management-api-js/-/management-api-js-0.11.0.tgz#e78e518f47e5a91c5af7c8ef2aa47a024ebb9fc6"
+  integrity sha512-KPGpwS8CdrU+zvGM8b2F4ieF5KaL0gPh/kJnG4fTlzNdQ4Zb8m4WDOISPUTRG2ZLKIlp0ev1X6HRzXijktDkJA==
+  dependencies:
+    "@kinde/jwt-decoder" "^0.2.0"
+    aws-jwt-verify "^4.0.1"
+    dotenv "^16.4.5"
+
 "@neondatabase/serverless@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@neondatabase/serverless/-/serverless-0.10.4.tgz#71322528fac0e69da562789e479f1b03d887b17e"
@@ -2764,6 +2773,11 @@ available-typed-arrays@^1.0.7:
   dependencies:
     possible-typed-array-names "^1.0.0"
 
+aws-jwt-verify@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/aws-jwt-verify/-/aws-jwt-verify-4.0.1.tgz#d5f36f80f3d1cbe8ffa638347bb80daf72f6ae61"
+  integrity sha512-kzvi71eD3w/mCpYRUY7cz6DX4bfYihGdI2yV3FYQ2JuZZenqAqDPz0gWj0ew6vlAtdEVBNb7p+Dm2TAIxpVYMA==
+
 axe-core@^4.10.0:
   version "4.10.2"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.10.2.tgz#85228e3e1d8b8532a27659b332e39b7fa0e022df"
@@ -3122,6 +3136,11 @@ dotenv@^16.3.1:
   version "16.4.5"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.5.tgz#cdd3b3b604cb327e286b4762e13502f717cb099f"
   integrity sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==
+
+dotenv@^16.4.5:
+  version "16.4.7"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.7.tgz#0e20c5b82950140aa99be360a8a5f52335f53c26"
+  integrity sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==
 
 dotenv@^16.4.6:
   version "16.4.6"
