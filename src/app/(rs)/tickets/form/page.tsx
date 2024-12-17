@@ -6,7 +6,7 @@ import TicketForm from "@/app/(rs)/tickets/form/TicketForm";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 import { Users, init as kindeInit } from "@kinde/management-api-js"
-import { BackButton } from "@/components/ui/BackButton";
+import { BackButton } from "@/components/BackButton";
 
 export async function generateMetadata({
     searchParams,

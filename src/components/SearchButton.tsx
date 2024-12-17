@@ -2,7 +2,7 @@
 
 import { useFormStatus } from "react-dom"
 import { LoaderCircle } from "lucide-react"
-import { Button } from "@/components/ui/Button"
+import { Button } from "@/components/ui/button"
 
 export default function SearchButton() {
     const status = useFormStatus()

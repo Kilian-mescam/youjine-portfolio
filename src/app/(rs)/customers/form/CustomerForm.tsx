@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form } from "@/components/ui/form"
-import { Button } from "@/components/ui/Button"
+import { Button } from "@/components/ui/button"
 
 import { insertCustomerSchema, type insertCustomerSchemaType, type selectCustomerSchemaType } from "@/zod-schemas/customer"
 import { InputWithLabel } from "@/components/inputs/InputWithLabel"
